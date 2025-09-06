@@ -24,8 +24,8 @@ if __name__ == '__main__':
             solved_problems = [int(i) for i in input().split() if i != -1]
             rejected_runs   = [int(i) for i in input().split() if i == -1]
 
-            curr_team.time = sum(i for i in solved_problems if i != -1)
-            curr_team.time += 20 * sum(i for i in rejected_runs)
+            curr_team.time = sum(i for i in solved_problems)
+            curr_team.time += 20 * sum(1 for i in rejected_runs)
 
             curr_team.problems_correct = sum(1 for i in solved_problems if i != -1)
             teams.append(curr_team)
