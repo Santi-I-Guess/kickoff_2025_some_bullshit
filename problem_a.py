@@ -5,12 +5,15 @@ if __name__ == '__main__':
         list_len = int(input())
         blackboard = [int(i) for i in input().split()]
         questions = [input() for i in range(list_len)]
+        blackboard.sort()
         for i in questions:
             if i == "max":
-                print(max(blackboard), end=" ")
-                blackboard.pop(blackboard.index(max(blackboard)))
+                the_max = blackboard[-1]
+                print(the_max, end=" ")
+                blackboard.pop()
             elif i == "min":
-                print(min(blackboard), end=" ")
-                blackboard.pop(blackboard.index(min(blackboard)))
+                the_min = blackboard[0]
+                print(the_min, end=" ")
+                blackboard.pop(0)
         print()
 
