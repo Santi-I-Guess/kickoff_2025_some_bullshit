@@ -1,0 +1,12 @@
+6 5
+milan 1
+piacenza 4
+pama 6
+bologna 10
+modena 9
+rimini 14
+2 modena
+1 4
+2 rimini
+1 14
+2 milan
