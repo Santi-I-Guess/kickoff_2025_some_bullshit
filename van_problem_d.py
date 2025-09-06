@@ -16,19 +16,16 @@ if __name__ == '__main__':
         
         teams: list = []
 
-        for team_desc_num in range(num_teams):
-            try:
-                curr_team = team(0, 0, 0, 0, 0, [int(i) for i in input().split(" ")])
-                curr_team.team_num = team_desc_num + 1
-                print("Team :", curr_team.team_num)
-                curr_team.problems_correct = len(curr_team.problems) - curr_team.problems.count(-1)
-                curr_team.problems_incorrect = curr_team.problems.count(-1)
-                for time in curr_team.problems:
+        for index in range(num_teams):
+                team_num = index + 1
+                problems = [int(i) for i in input().split(" ")]
+                time = 0
+                problems_correct = len(problems) - problems.count(-1)
+                problems_incorrect = problems.count(-1)
+                for time in problems:
                     if time != -1:
-                        curr_team.time += time
-                curr_team.time += curr_team.problems_incorrect * 20
-            except:
-                pass
+                        time += time
+                time += problems_incorrect * 20
         # sort based on problems correct
         sorted_teams = sorted(teams, key=attrgetter('problems_correct'))
         
