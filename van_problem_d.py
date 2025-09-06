@@ -5,24 +5,19 @@ class team:
     team_num: int
     place_num: int
     time: int
+    problems_incorrect: int
 
 if __name__ == '__main__':
     test_cases = int(input())
     for test_case_num in range(test_cases):
-        try:
-            num_teams = int(input().split(" ")[0])
-        except:
-            break
+        num_teams = int(input().split(" ")[0])
         
         teams: list = []
 
+        print(test_case_num)
         for index in range(num_teams):
                 team_num = index + 1
-                try:
-                    problems = [int(i) for i in input().split(" ")]
-                except EOFError:
-                    problems = []
-                    pass
+                problems = [int(i) for i in input().split(" ")]
                 time = 0
                 problems_correct = len(problems) - problems.count(-1)
                 problems_incorrect = problems.count(-1)
@@ -31,7 +26,7 @@ if __name__ == '__main__':
                         time += time
                 time += problems_incorrect * 20
 
-                new_team = team(team_num, 0, time)
+                new_team = team(team_num, 0, time, problems_correct)
         # sort based on problems correct
         sorted_teams = sorted(teams, key=attrgetter('problems_correct'))
         
